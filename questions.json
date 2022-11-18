@@ -1,0 +1,99 @@
+{
+  "sorular": [
+    {
+      "soru": "Züğürt Ağa'da Abuzer, Eşkıya'da Mustafa ve başrollerini Şener Şen ve Kenan İmirzalıoğlu'nun paylaştığı Kabadayı'da Beyto karakterini canlandıran oyuncu kimdir?",
+      "siklar": ["Hayati Hamzaoğlu", "Kemal İnci", "Kadir Savun", "Erol Taş"],
+      "dogru_cevap": 1
+    },
+    {
+      "soru": "Hangisi gevrek ve sulu bir tür ayvaya verilen addır?",
+      "siklar": [
+        "Poğaça Ayvası",
+        "Kruvasan Ayvası",
+        "Simit Ayvası",
+        "Ekmek Ayvası"
+      ],
+      "dogru_cevap": 3
+    },
+    {
+      "soru": "Afrika kıtasının Kilimanjaro'dan sonraki en yüksek dağı olan Kenya Dağı hangi ülkededir?",
+      "siklar": ["Kenya", "Güney Afrika", "Nijerya", "Fas"],
+      "dogru_cevap": 0
+    },
+    {
+      "soru": "Hangisi havuç'a verilen bir addır?",
+      "siklar": ["Havayaran", "Toprağa Giren", "Yeregeçen", "Karakaçan"],
+      "dogru_cevap": 2
+    },
+    {
+      "soru": "Keşmekeş ne demektir?",
+      "siklar": ["Dinginlik", "Karışıklık", "Durgunluk", "Sakinlik"],
+      "dogru_cevap": 1
+    },
+    {
+      "soru": "Hangisi TDK sözlüklerinde tanımı olan bir ifade değildir?",
+      "siklar": [
+        "Yıldızları Barışmamak",
+        "Perileri Bağdaşmak",
+        "Kafası Uyuşmak",
+        "Gönlü Çelinmek"
+      ],
+      "dogru_cevap": 2
+    },
+    {
+      "soru": "Peşkir nedir?",
+      "siklar": [
+        "Bir Çeşit Elek",
+        "Bir Çeşit Havlu",
+        "Bir Çeşit Şerbetli Tatlı",
+        "Bir Çeşit Pabuç"
+      ],
+      "dogru_cevap": 1
+    },
+    {
+      "soru": "Atasözüne göre hangisini yıkmak kolay, yapmak zordur?",
+      "siklar": ["Aşil Tendonunu", "Safra Kesesini", "Apandisi", "Kalbi"],
+      "dogru_cevap": 3
+    },
+    {
+      "soru": "Linyit, antrasit gibi türleri olan ve büyük ölçüde karbondan oluşan hangisidir?",
+      "siklar": ["Alüminyum", "Bor", "Kömür", "Obsidiyen"],
+      "dogru_cevap": 2
+    },
+    {
+      "soru": "TDK'ye göre günümüz Türkçesinde yazılışı yanlış olan hangisidir?",
+      "siklar": ["Kırklareli'ne", "Rumeli'ne", "Eminönü'ne", "Osmaneli'ne"],
+      "dogru_cevap": 1
+    },
+    {
+      "soru": "Barış Manço 1982'de kimin mezarının yeni baştan yapılmasına katkıda bulunmuştur?",
+      "siklar": [
+        "Sarı Çizmeli Mehmet Ağa'nın",
+        "Kul Ahmet'in",
+        "Gülpembe'nin",
+        "Hala Kızı Zehra'nın"
+      ],
+      "dogru_cevap": 0
+    },
+    {
+      "soru": "16. yüzyılda Avrupa'da Türk buğdayı ve Türk tahılı olarak da bilinen hangisidir?",
+      "siklar": ["Mısır", "Yulaf", "Susam", "Ay Çekirdeği"],
+      "dogru_cevap": 0
+    },
+    {
+      "soru": "Tersinden yıkayınız, Ters yüz ederek yıkayınız gibi uyarılar hangisinin yıkama talimatlarında yer alır?",
+      "siklar": ["Kıyafet", "Otomobil", "Saksı Bitkisi", "Tropikal Meyve"],
+      "dogru_cevap": 0
+    },
+    {
+      "soru": "Tekerleme yapmak amacıyla söylenen sözde genellikle hangi meyvenin adı söylendikten sonra iki gözüm denir?",
+      "siklar": ["Elma", "Avokado", "Muz", "Üzüm"],
+      "dogru_cevap": 3
+    },
+    {
+      "soru": "Bir atasözünde dengi dengine diye çaldığı söylenen, ne tür bir enstrümandır?",
+      "siklar": ["Nefesli", "Yaylı", "Vurmalı", "Telli"],
+      "dogru_cevap": 2
+    }
+  ]
+}
