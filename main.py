@@ -32,6 +32,27 @@ print("""
 # # # # # # # # # # # # # # # # # # # # # # # # #
 """)
 
+soru_listesi = []
+for x in sorular:
+    soru = x["soru"]
+    siklar = x["siklar"]
+    dogru_cevap = x["dogru_cevap"]
+    yeni_soru = Soru(soru, siklar, dogru_cevap)
+    soru_listesi.append(yeni_soru)
+
+yarisma = Yarisma(soru_listesi)
+
+while yarisma.oyun_devammi():
+    yarisma.siradaki_soru()
+
+print("Yarışma Bitti.")
+if yarisma.odul_index == 12 and yarisma.yanlis_cevap == False:
+    print(f"Ödülün : {yarisma.odul_listesi[yarisma.odul_index]} !!! TEBRİKLER !!!")
+elif yarisma.odul_index > 1 and yarisma.odul_index < 11:
+    print(f"Ödülün : {yarisma.odul_listesi[yarisma.odul_index - 1]}")  
+else:
+    print(f"Ödülün : {yarisma.odul_listesi[yarisma.odul_index]}")
+
 
 
     
