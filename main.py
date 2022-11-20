@@ -2,6 +2,7 @@ from game_brain import Yarisma
 from question_class import Soru
 from questions import sorular
 
+
 print("""
 # # # # # # # # # # # # # # # # # # # # # # # # #
 #          KİM MİLYONER OLMAK İSTER ?           #
@@ -19,11 +20,11 @@ print("""
 #    11 - 400.000 TL                            #
 #    12 - 1.000.000 TL (Büyük Ödül)             #
 #                                               #
-#    JOKERLER :                                 #
-#     Seyirciye Sorma Jokeri                    #
-#     Telefon Jokeri                            #
-#     Yarı Yarıya Jokeri                        #
-#     Çift Cevap Jokeri                         #
+#    JOKERLER ve Kullanım Numaraları:           #
+#     Seyirciye Sorma Jokeri(1)                 #
+#     Telefon Jokeri(2)                         #
+#     Yarı Yarıya Jokeri(3)                     #
+#     Çift Cevap Jokeri(4)                      #
 #                                               #
 #    SÜRE KISITLAMASI :                         #
 #     1. ve 2. sorularda 15 saniye;             #
