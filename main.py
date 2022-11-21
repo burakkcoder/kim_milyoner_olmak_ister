@@ -49,11 +49,11 @@ while yarisma.oyun_devammi():
 print("Yarışma Bitti.")
 if yarisma.odul_index == 12 and yarisma.yanlis_cevap == False:
     print(f"Ödülün : {yarisma.odul_listesi[yarisma.odul_index]} !!! TEBRİKLER !!!")
+elif yarisma.odul_index == 2:  
+    print(f"Ödülün : {yarisma.odul_listesi[0]}")
 elif yarisma.odul_index > 1 and yarisma.odul_index < 11:
-    print(f"Ödülün : {yarisma.odul_listesi[yarisma.odul_index - 1]}")  
+    print(f"Ödülün : {yarisma.odul_listesi[yarisma.odul_index - 1]}")
 else:
     print(f"Ödülün : {yarisma.odul_listesi[yarisma.odul_index]}")
 
 
-
-    

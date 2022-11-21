@@ -1,5 +1,6 @@
 import time
 import random
+from pytimedinput import timedInput
 
 class Yarisma:
     def __init__(self, soru_listesi):
@@ -20,107 +21,76 @@ class Yarisma:
     
     def siradaki_soru(self):
         soru = self.soru_listesi[self.soru_numarasi]
-        while self.sure_kontrolu():
+        while True:
             if self.odul_index == 0:
-                self.sure_kontrolu()
-                cevap = input(f"\n{self.odul_listesi[self.odul_index + 1]}'lik Soru : {soru.soru} (A/B/C/D)\n\nJoker Kullanmak İçin(1/2/3/4)\n\n{soru.siklar}\n").upper()
-                if cevap != "A" and cevap != "B" and cevap != "C" and cevap != "D" and cevap != "1" and cevap != "2" and cevap != "3" and cevap != "4":
-                    print("Lütfen şıkkı veya jokeri doğru yazın.\n")
-                    continue               
-                if cevap == "1" and "Seyirciye Sorma Jokeri" in self.jokerler:
-                    print("Seyirciye Sorma Jokeri Kullanıldı\n")
-                    self.joker_kullanimi(cevap)
-                    continue
-                elif cevap == "1" and "Seyirciye Sorma Jokeri" not in self.jokerler:
-                    print("Seyirciye Sorma Jokerini Daha Önce Kullandınız!\n")
-                    continue
-                elif cevap == "2" and "Telefon Jokeri" in self.jokerler:
-                    print("Telefon Jokeri Kullanıldı\n")
-                    self.joker_kullanimi(cevap)
-                    continue
-                elif cevap == "2" and "Telefon Jokeri" not in self.jokerler:
-                    print("Telefon Jokerini Daha Önce Kullandınız!\n")
-                    continue
-                elif cevap == "3" and "Yarı Yarıya Jokeri" in self.jokerler:
-                    print("Yarı Yarıya Jokeri Kullanıldı\n")
-                    cevap = self.yari_yariya_kontrolu()
-                elif cevap == "3" and "Yarı Yarıya Jokeri" not in self.jokerler:
-                    print("Yarı Yarıya Jokerini Daha Önce Kullandınız!\n")
-                    continue
-                elif cevap == "4" and "Çift Cevap Jokeri" in self.jokerler:
-                    print("Çift Cevap Jokeri 2.Barajı Geçince Kullanılabilir.\n")
-                    continue
-
-            elif self.odul_index == 2 or self.odul_index == 7:
-                self.sure_kontrolu()
-                cevap = input(f"\n{self.odul_listesi[self.odul_index]}'lik Baraj Sorusu : {soru.soru} (A/B/C/D)\nJoker Kullanmak İçin(1/2/3/4)\n\n{soru.siklar}\n").upper()
-                if cevap != "A" and cevap != "B" and cevap != "C" and cevap != "D" and cevap != "1" and cevap != "2" and cevap != "3" and cevap != "4":
-                    print("Lütfen şıkkı veya jokeri doğru yazın.\n")
-                    continue               
-                if cevap == "1" and "Seyirciye Sorma Jokeri" in self.jokerler:
-                    print("Seyirciye Sorma Jokeri Kullanıldı\n")
-                    self.joker_kullanimi(cevap)
-                    continue
-                elif cevap == "1" and "Seyirciye Sorma Jokeri" not in self.jokerler:
-                    print("Seyirciye Sorma Jokerini Daha Önce Kullandınız!\n")
-                    continue
-                elif cevap == "2" and "Telefon Jokeri" in self.jokerler:
-                    print("Telefon Jokeri Kullanıldı\n")
-                    self.joker_kullanimi(cevap)
-                    continue
-                elif cevap == "2" and "Telefon Jokeri" not in self.jokerler:
-                    print("Telefon Jokerini Daha Önce Kullandınız!\n")
-                    continue
-                elif cevap == "3" and "Yarı Yarıya Jokeri" in self.jokerler:
-                    print("Yarı Yarıya Jokeri Kullanıldı\n")
-                    cevap = self.yari_yariya_kontrolu()
-                elif cevap == "3" and "Yarı Yarıya Jokeri" not in self.jokerler:
-                    print("Yarı Yarıya Jokerini Daha Önce Kullandınız!\n")
-                    continue
-                elif cevap == "4" and "Çift Cevap Jokeri" in self.jokerler and self.odul_index <= 7:
-                    print("Çift Cevap Jokeri 2.Barajı Geçince Kullanılabilir.\n")
-                    continue
-                elif cevap == "4" and "Çift Cevap Jokeri" in self.jokerler and self.odul_index > 7:
-                    print("Çift Cevap Jokeri Kullanıldı.\n")
-                    cevap = self.cift_cevap_kontrolu()
-                elif cevap == "4" and "Çift Cevap Jokeri" not in self.jokerler and self.odul_index > 7:
-                    print("Çift Cevap Jokerini Daha Önce Kullandınız!\n")
-                    continue
+                cevap, zaman_asimi = timedInput(f"\n{self.odul_listesi[self.odul_index + 1]}'lik Soru : {soru.soru} (A/B/C/D)\n\nSüreniz 15 Saniye\nJoker Kullanmak İçin(1/2/3/4)\n\n{soru.siklar}\n", timeout = 15)
+                if (zaman_asimi):
+                    self.cekilme = True
+                    break
+                cevap = cevap.upper()
+            elif self.odul_index == 1:
+                cevap, zaman_asimi = timedInput(f"\n{self.odul_listesi[self.odul_index]}'lik Soru : {soru.soru} (A/B/C/D)\n\nSüreniz 15 Saniye\nJoker Kullanmak İçin(1/2/3/4)\n\n{soru.siklar}\n", timeout = 15)
+                if (zaman_asimi):
+                    self.cekilme = True
+                    break
+                cevap = cevap.upper()                  
+            elif self.odul_index == 2:
+                cevap, zaman_asimi = timedInput(f"\n{self.odul_listesi[self.odul_index]}'lik Baraj Sorusu : {soru.soru} (A/B/C/D)\n\nSüreniz 15 Saniye\nJoker Kullanmak İçin(1/2/3/4)\n\n{soru.siklar}\n", timeout = 15)
+                if (zaman_asimi):
+                    self.cekilme = True
+                    break
+                cevap = cevap.upper()
+            elif self.odul_index < 7:
+                cevap, zaman_asimi = timedInput(f"\n{self.odul_listesi[self.odul_index]}'lik Soru: {soru.soru} (A/B/C/D)\n\nSüreniz 45 Saniye\nJoker Kullanmak İçin(1/2/3/4)\n\n{soru.siklar}\n", timeout = 45)
+                if (zaman_asimi):
+                    self.cekilme = True
+                    break
+                cevap = cevap.upper()   
+            elif self.odul_index == 7:
+                cevap, zaman_asimi = timedInput(f"\n{self.odul_listesi[self.odul_index]}'lik Baraj Sorusu : {soru.soru} (A/B/C/D)\n\nSüreniz 45 Saniye\nJoker Kullanmak İçin(1/2/3/4)\n\n{soru.siklar}\n", timeout = 45)
+                if (zaman_asimi):
+                    self.cekilme = True
+                    break
+                cevap = cevap.upper()             
             else:
-                self.sure_kontrolu()
-                cevap = input(f"\n{self.odul_listesi[self.odul_index]}'lik Soru : {soru.soru} (A/B/C/D)\nJoker Kullanmak İçin(1/2/3/4)\n\n{soru.siklar}\n").upper()
-                if cevap != "A" and cevap != "B" and cevap != "C" and cevap != "D" and cevap != "1" and cevap != "2" and cevap != "3" and cevap != "4":
-                    print("Lütfen şıkkı veya jokeri doğru yazın.\n")
-                    continue               
-                if cevap == "1" and "Seyirciye Sorma Jokeri" in self.jokerler:
-                    print("Seyirciye Sorma Jokeri Kullanıldı\n")
-                    self.joker_kullanimi(cevap)
-                    continue
-                elif cevap == "1" and "Seyirciye Sorma Jokeri" not in self.jokerler:
-                    print("Seyirciye Sorma Jokerini Daha Önce Kullandınız!\n")
-                    continue
-                elif cevap == "2" and "Telefon Jokeri" in self.jokerler:
-                    print("Telefon Jokeri Kullanıldı\n")
-                    self.joker_kullanimi(cevap)
-                    continue
-                elif cevap == "2" and "Telefon Jokeri" not in self.jokerler:
-                    print("Telefon Jokerini Daha Önce Kullandınız!\n")
-                    continue
-                elif cevap == "3" and "Yarı Yarıya Jokeri" in self.jokerler:
-                    print("Yarı Yarıya Jokeri Kullanıldı\n")
-                    cevap = self.yari_yariya_kontrolu()
-                elif cevap == "3" and "Yarı Yarıya Jokeri" not in self.jokerler:
-                    print("Yarı Yarıya Jokerini Daha Önce Kullandınız!\n")
-                    continue
-                elif cevap == "4" and "Çift Cevap Jokeri" in self.jokerler and self.odul_index <= 7:
-                    print("Çift Cevap Jokeri 2.Barajı Geçince Kullanılabilir.\n")
-                    continue
-                elif cevap == "4" and "Çift Cevap Jokeri" in self.jokerler and self.odul_index > 7:
-                    print("Çift Cevap Jokeri Kullanıldı.\n")
-                    cevap = self.cift_cevap_kontrolu()
-                elif cevap == "4" and "Çift Cevap Jokeri" not in self.jokerler and self.odul_index > 7:
-                    print("Çift Cevap Jokerini Daha Önce Kullandınız!\n")
-                    continue
+                cevap, zaman_asimi = timedInput(f"\n{self.odul_listesi[self.odul_index]}'lik Baraj Sorusu : {soru.soru} (A/B/C/D)\n\nSüreniz 45 Saniye\nJoker Kullanmak İçin(1/2/3/4)\n\n{soru.siklar}\n", timeout = 45)
+                if (zaman_asimi):
+                    self.cekilme = True
+                    break
+                cevap = cevap.upper()  
+
+            if cevap != "A" and cevap != "B" and cevap != "C" and cevap != "D" and cevap != "1" and cevap != "2" and cevap != "3" and cevap != "4":
+                print("Lütfen şıkkı veya jokeri doğru yazın.\n")
+                continue               
+            if cevap == "1" and "Seyirciye Sorma Jokeri" in self.jokerler:
+                print("Seyirciye Sorma Jokeri Kullanıldı\n")
+                self.joker_kullanimi(cevap)
+                continue
+            elif cevap == "1" and "Seyirciye Sorma Jokeri" not in self.jokerler:
+                print("Seyirciye Sorma Jokerini Daha Önce Kullandınız!\n")
+                continue
+            elif cevap == "2" and "Telefon Jokeri" in self.jokerler:
+                print("Telefon Jokeri Kullanıldı\n")
+                self.joker_kullanimi(cevap)
+                continue
+            elif cevap == "2" and "Telefon Jokeri" not in self.jokerler:
+                print("Telefon Jokerini Daha Önce Kullandınız!\n")
+                continue
+            elif cevap == "3" and "Yarı Yarıya Jokeri" in self.jokerler:
+                print("Yarı Yarıya Jokeri Kullanıldı\n")
+                cevap = self.yari_yariya_kontrolu()
+            elif cevap == "3" and "Yarı Yarıya Jokeri" not in self.jokerler:
+                print("Yarı Yarıya Jokerini Daha Önce Kullandınız!\n")
+                continue
+            elif cevap == "4" and "Çift Cevap Jokeri" in self.jokerler and self.odul_index <= 7:
+                print("Çift Cevap Jokeri 2.Barajı Geçince Kullanılabilir.\n")
+                continue
+            elif cevap == "4" and "Çift Cevap Jokeri" in self.jokerler and self.odul_index > 7:
+                print("Çift Cevap Jokeri Kullanıldı.\n")
+                cevap = self.cift_cevap_kontrolu()
+            elif cevap == "4" and "Çift Cevap Jokeri" not in self.jokerler and self.odul_index > 7:
+                print("Çift Cevap Jokerini Daha Önce Kullandınız!\n")
+                continue
             self.cevap_kontrolu(cevap, soru.dogru_cevap)
             break
         self.soru_numarasi += 1
@@ -147,10 +117,11 @@ class Yarisma:
                             self.odul_index += 1
                             self.cekilme = True
                             break
+                        elif self.odul_index != 11:
+                            self.odul_index += 1
+                            self.cekilme = True
+                            break
                         else:
-                            if self.odul_index != 11:
-                                self.odul_index += 1
-                                break
                             self.cekilme = True
                             break
                     elif cevap == "H" and self.odul_index == 0:
@@ -221,19 +192,3 @@ class Yarisma:
             cevap = input(f"2.Cevabınızı Seçin : (A/B/C/D)\n").upper()
             return cevap
         return cevap
-
-"""    def sure_kontrolu(self):
-        if self.odul_index >= 0 and self.odul_index <= 2:
-            if sure1 == 0:        
-                return False                    
-            else:                                   
-                t = Timer(2.0, self.sure_kontrolu())  
-                t.start()
-        elif self.odul_index >= 3 and self.odul_index <= 7:
-            if sure2 == 0:        
-                return False                    
-            else:                                   
-                t = Timer(2.0, self.sure_kontrolu())  
-                t.start()
-        return True
-"""
